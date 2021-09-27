@@ -7,12 +7,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MyPortalController {
-	@RequestMapping("/myportal")
+	@RequestMapping("/home")
 	public ModelAndView myportal(@RequestParam String name) {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject( "message", "Hello " + name );
-		mav.setViewName( "/WEB-INF/views/myportal.jsp" );
+		mav.setViewName( "/WEB-INF/views/home.jsp" );
 		
 		return mav;
 	}
