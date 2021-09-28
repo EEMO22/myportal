@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>This is My Portal</h1>
-	<p>${ message }</p>
+	<p>Spring Framework!</p>
 
 </body>
 </html>
