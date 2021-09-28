@@ -1,4 +1,4 @@
-package com.bitacademy.repository;
+package com.bitacademy.myportal.repository;
 
 import java.util.Date;
 

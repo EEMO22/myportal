@@ -2,7 +2,7 @@ package com.bitacademy.myportal.service;
 
 import java.util.List;
 
-import com.bitacademy.repository.BoardVo;
+import com.bitacademy.myportal.repository.BoardVo;
 
 public interface BoardService {
 	public List<BoardVo> getList();	//	게시판 목록 보기
