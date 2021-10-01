@@ -112,4 +112,43 @@ public class UsersController {
 		
 		return map;
 	}
+	
+	//	회원 정보 수정
+	@RequestMapping(value = "/modify", method=RequestMethod.GET)
+	public String modifyForm() {
+		return "/users/modifyform";
+	}
+	
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	public String modifyAction(@ModelAttribute UserVo userVo,
+			@RequestParam(value="name", required=false)
+				String name,
+			@RequestParam(value="password", required=false)
+				String password,
+			HttpSession session) {
+		
+		if (name.length() == 0 || password.length() == 0) {
+			System.err.println("정보 수정 불가!");
+			return "redirect:/users/modify";
+		}
+		
+		System.out.println("정보 수정" + userVo);
+		
+		boolean bSuccess = false;
+		try {
+			bSuccess = userServiceImpl.modify(userVo);
+		} catch (UserDaoException e) {
+			System.err.println("에러상황의 UserVo:" + userVo);
+			e.printStackTrace();
+		}
+		
+		if (bSuccess) {	// 성공
+//			UserVo authUser = userServiceImpl.updateUser(name);
+//			session.setAttribute(name, authUser);
+//			session.setAttribute(name, session);
+			return "redirect:/";
+		}
+		return "redirect:/users/modify";
+	}
+	
 }

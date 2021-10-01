@@ -17,6 +17,7 @@ public class ApiController {
 	@Autowired
 	private UserService userServiceImpl;
 	
+	//	ResponseBody 없어도 되는 게 장점
 	@RequestMapping("users/emailcheck")
 	public Object exists(@RequestParam(value="email", 
 										required=true, 
