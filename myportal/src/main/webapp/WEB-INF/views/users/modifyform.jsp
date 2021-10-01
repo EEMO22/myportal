@@ -17,19 +17,26 @@
 		name="updateForm" 
 		action="<c:url value="/users/modify"/>"
 		method="POST">
-		<input type="hidden" name="no" value="${authUser.no }">
+		<input type="hidden" name="no" value="${authUser.getNo() }">
 		
 		<label for="name">이름</label>
-		<input name="name" type="text" value="${authUser.name }"><br>
+		<input name="name" type="text" value="${authUser.getName() }"><br>
 	
 		<label for="password">비밀번호</label>
 		<input name="password" type="password" placeholder="새로운 비밀번호를 입력하십시오"><br>
 	
 		<label for="gender">성별</label>
-		<input type="radio" name="gender" value="M" 
-			checked="${authUser.gender == 'M' }">남성</radio>
-		<input type="radio" name="gender" value="F"
-			checked="${authUser.gender == 'F' }">여성</radio><br>
+		<c:choose>
+			<c:when test='${authUser.gender == "M" }'>
+				<input type="radio" name="gender" value="M" checked>남성</radio>
+				<input type="radio" name="gender" value="F">여성</radio>
+			</c:when>
+			<c:otherwise>
+				<input type="radio" name="gender" value="M">남성</radio>
+				<input type="radio" name="gender" value="F" checked>여성</radio>
+			</c:otherwise>
+		</c:choose>
+			
 		<input type="submit" value="저장"> 
 	
 	</form>
