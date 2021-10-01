@@ -8,7 +8,7 @@ import com.bitacademy.myportal.repository.UserDao;
 import com.bitacademy.myportal.repository.UserVo;
 
 @Service
-public abstract class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDaoImpl;
 
@@ -32,14 +32,8 @@ public abstract class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean modify(UserVo vo) {
-		int updatedCount = userDaoImpl.update(vo);
+		int updatedCount = userDaoImpl.updateUser(vo);
 		return 1 == updatedCount;
 	}
-//
-//	@Override
-//	public UserVo updateUser(String name) {
-//		UserVo userVo = userDaoImpl.updateUser(name);
-//		return userVo;
-//	}
 
 }

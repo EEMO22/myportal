@@ -31,9 +31,4 @@
 	        gender = #{gender}
     WHERE no = #{no} 
 	</update>
-	
-	<!--  select id="getUserName" parameterType="string" resultType="userVo">
-	SELECT name FROM users 
-	WHERE no = ${no}
-	</select -->
 </mapper>

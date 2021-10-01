@@ -113,7 +113,7 @@ public class UsersController {
 		return map;
 	}
 	
-	//	회원 정보 수정
+//	회원 정보 수정
 	@RequestMapping(value = "/modify", method=RequestMethod.GET)
 	public String modifyForm() {
 		return "/users/modifyform";
@@ -143,12 +143,8 @@ public class UsersController {
 		}
 		
 		if (bSuccess) {	// 성공
-//			UserVo authUser = userServiceImpl.updateUser(name);
-//			session.setAttribute(name, authUser);
-//			session.setAttribute(name, session);
 			return "redirect:/";
 		}
 		return "redirect:/users/modify";
 	}
-	
 }

@@ -49,15 +49,8 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public int update(UserVo vo) {
+	public int updateUser(UserVo vo) {
 		int count = sqlSession.update("users.updateUser", vo);
 		return count;
 	}
-
-//	@Override
-//	public UserVo updateUser(String name) {
-//		UserVo vo = sqlSession.selectOne("users.getUserName", name);
-//		return vo;
-//	}
-
 }
