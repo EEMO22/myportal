@@ -121,6 +121,8 @@ public class UsersController {
 	
 	@RequestMapping(value="/modify", method=RequestMethod.POST)
 	public String modifyAction(@ModelAttribute UserVo userVo,
+			@RequestParam(value="email", required=false)
+				String email,
 			@RequestParam(value="name", required=false)
 				String name,
 			@RequestParam(value="password", required=false)
@@ -143,6 +145,11 @@ public class UsersController {
 		}
 		
 		if (bSuccess) {	// 성공
+			UserVo authUser = userServiceImpl.getUser(email);
+			authUser.setName(name);
+			System.out.println("현재 세션 이름:" + authUser.getName());
+			//	사용자 세션 업데이트 수정 중!
+			
 			return "redirect:/";
 		}
 		return "redirect:/users/modify";
