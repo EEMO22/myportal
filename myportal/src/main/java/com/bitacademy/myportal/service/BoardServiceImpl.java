@@ -21,8 +21,8 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public BoardVo getContent(Long no) {
-		// TODO Auto-generated method stub
-		return null;
+		BoardVo vo = boardDaoImpl.getContent(no);
+		return vo;
 	}
 
 	@Override

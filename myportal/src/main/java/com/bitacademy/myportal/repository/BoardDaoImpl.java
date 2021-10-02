@@ -26,8 +26,9 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public BoardVo getContent(Long no) {
-		// TODO Auto-generated method stub
-		return null;
+		BoardVo vo = sqlSession.selectOne("board.selectOne", no);
+		int hit = sqlSession.update("board.updateHit", no);
+		return vo;
 	}
 
 	@Override

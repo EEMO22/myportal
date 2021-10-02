@@ -27,4 +27,22 @@
 	FROM board b, users u
 	WHERE b.user_no = u.no
 	</select>
+	
+	<select id="selectOne" parameterType="long" resultType="boardVo">
+	SELECT 
+	    no,
+	    title,
+	    content,
+	    reg_date as regDate,
+	    user_no as userNo
+	FROM board 
+	WHERE no = #{no}
+	</select>
+	
+	<update id="updateHit" parameterType ="long">
+	UPDATE board
+    SET
+        hit = hit + 1
+	WHERE no = #{no}
+	</update>
 </mapper>

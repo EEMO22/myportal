@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -56,4 +57,15 @@ public class BoardController {
 		
 		return "redirect:/board/list";
 	}
+	
+	//	게시물 조회
+	@RequestMapping("/view/{no}")
+	public String view(@PathVariable Long no, Model model) {
+		
+		BoardVo vo = boardServiceImpl.getContent(no);
+		model.addAttribute("vo", vo);
+		
+		return "/board/view";
+	}
+
 }

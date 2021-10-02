@@ -23,7 +23,7 @@
 		<c:forEach items="${list }" var="vo">
 			<tr>
 				<td>${vo.no}</td>
-				<td><a href="">${vo.title}</a></td>
+				<td><a href="<c:url value="/board/view/${vo.no }"/>">${vo.title}</a></td>
 				<td>${vo.userName }</td>
 				<td>${vo.hit}</td>
 				<td>${vo.regDate }</td>

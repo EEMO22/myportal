@@ -26,3 +26,23 @@ SELECT
     name as userName
 FROM board b, users u
 WHERE b.user_no = u.no;
+
+--  게시물 조회
+SELECT 
+    no,
+    title,
+    content,
+    reg_date as regDate,
+    user_no as userNo
+FROM board 
+WHERE no = 1;
+
+-- 조회 수 증가
+
+UPDATE board
+    SET
+        hit = hit + 1
+WHERE no = 1;
+
+SELECT * FROM board;
+rollback;
