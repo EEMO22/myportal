@@ -46,3 +46,12 @@ WHERE no = 1;
 
 SELECT * FROM board;
 rollback;
+
+--  게시물 업데이트
+
+UPDATE board
+    SET
+        title = '테스트',
+        content = '해봅시다'
+WHERE no = 21;
+rollback;        
