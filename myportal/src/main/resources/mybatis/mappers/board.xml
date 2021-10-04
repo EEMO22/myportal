@@ -45,4 +45,12 @@
         hit = hit + 1
 	WHERE no = #{no}
 	</update>
+	
+	<update id="contentUpdate" parameterType="long">
+	UPDATE board
+    SET
+        title = #{vo.title},
+        content = #{vo.content}
+	WHERE no = #{no}
+	</update>
 </mapper>

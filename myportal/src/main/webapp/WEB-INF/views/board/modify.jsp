@@ -7,7 +7,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 </head>
 <body>
-	<form method="post" action="">
+	<form method="post" action="<c:url value="/board/modify/${vo.no }"/>">
 		<table border="1" width="640">
 			<tr>
 				<td colspan="2"><h3>게시판</h3></td>
@@ -16,13 +16,13 @@
 				<th colspan="2">글수정</th>
 			</tr>
 			<tr>
-				<td>제목</td>
+				<td>${vo.title }</td>
 				<td><input type="text" name="title" value=""></td>
 			</tr>
 			<tr>
 				<td>내용</td>
 				<td>
-					<textarea id="content" name="content">수정해야 할 글 내용</textarea>
+					<textarea id="content" name="content">${vo.content }</textarea>
 				</td>
 			</tr>
 			<tr>

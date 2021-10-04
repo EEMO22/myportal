@@ -33,7 +33,7 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public int update(BoardVo boardVo) {
-		// TODO Auto-generated method stub
+		int updatedCount = sqlSession.update("board.contentUpdate", boardVo);
 		return 0;
 	}
 

@@ -67,5 +67,30 @@ public class BoardController {
 		
 		return "/board/view";
 	}
+	
+	//	게시물 수정
+	@RequestMapping(value="/board/modify", method=RequestMethod.GET)
+	public String modifyForm(HttpSession session, BoardVo boardVo) {
+	
+		UserVo authUser = (UserVo)session.getAttribute("authUser");
 
+		if (authUser.getNo() == boardVo.getUserNo()) {
+			return "redirect:/board/modify/${vo.no}";
+		}
+		return "redirect:/board";
+	}
+	
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	public String modify(@ModelAttribute BoardVo boardVo) {
+		boardServiceImpl.update(boardVo);
+		
+		boolean bSuccess = false;
+		if (bSuccess) {
+			System.out.println("게시물 수정 성공!" + boardVo);
+			return "/board/view" + boardVo.getNo();
+		}
+		
+		return "/board";
+	}
+	
 }
