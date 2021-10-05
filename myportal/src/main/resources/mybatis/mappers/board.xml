@@ -49,8 +49,8 @@
 	<update id="contentUpdate" parameterType="boardVo">
 	UPDATE board
     SET
-        title = #{vo.title},
-        content = #{vo.content}
+        title = #{title},
+        content = #{content}
 	WHERE no = #{no}
 	</update>
 	

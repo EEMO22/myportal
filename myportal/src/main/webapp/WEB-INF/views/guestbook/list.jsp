@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>My Homepage</title>
+<title>방명록</title>
 <script 
 	type="text/javascript" 
 	src="<c:url value="/javascript/jquery/jquery-3.6.0.js" />"></script>

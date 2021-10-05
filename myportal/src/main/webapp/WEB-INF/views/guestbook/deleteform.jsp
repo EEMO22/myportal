@@ -5,18 +5,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>My Homepage</title>
+<title>삭제 폼</title>
+<link rel="stylesheet" 
+	href="<c:url value="/css/guestbook.css" />">
 </head>
 <body>
-	<form method="post"
-		action="<c:url value="/guestbook/delete"/>">
-		<input type='hidden' name="no" value="${no }"> 
-		<label
-			for="password">비밀번호</label>
-		<input type="password" name="password">
-		<input type="submit" value="확인"><br> 
-		<a href="<c:url value="/guestbook"/>">목록
-			보기</a>
-	</form>
+	<div id="container">
+		<jsp:include page="/WEB-INF/views/includes/header.jsp" />
+		<jsp:include page="/WEB-INF/views/includes/navigation.jsp" />
+		<div id="wrapper">
+			<div id="content">
+				<form method="post"
+					action="<c:url value="/guestbook/delete"/>">
+					<input type='hidden' name="no" value="${no }"> 
+					<label
+						for="password">비밀번호</label>
+					<input type="password" name="password">
+					<input type="submit" value="확인"><br> 
+					<a href="<c:url value="/guestbook"/>">목록
+						보기</a>
+				</form>
+			</div>
+		</div>
+		<%@ include file="/WEB-INF/views/includes/footer.jsp" %>
+	</div>
 </body>
 </html>

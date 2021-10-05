@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.bitacademy.myportal.exception.UserDaoException;
 import com.bitacademy.myportal.repository.BoardVo;
 import com.bitacademy.myportal.repository.UserVo;
 import com.bitacademy.myportal.service.BoardService;
@@ -70,8 +71,7 @@ public class BoardController {
 	}
 	
 	//	게시물 수정
-	@RequestMapping(value="/modify/{no}", 
-			method=RequestMethod.GET)
+	@RequestMapping(value="/modify/{no}", method=RequestMethod.GET)
 	public String modifyForm(@PathVariable Long no, Model model) {
 	
 		model.addAttribute("boardVo", no);
@@ -79,18 +79,20 @@ public class BoardController {
 		return "/board/modify";
 	}
 	
-	@RequestMapping(value="/modify", 
-			method=RequestMethod.POST)
-
-	public String modify(@ModelAttribute BoardVo boardVo) {
-		boardServiceImpl.update(boardVo);
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	public String modify(BoardVo vo) {
 		
 		boolean bSuccess = false;
-		if (bSuccess) {
-			System.out.println("게시물 수정 성공!" + boardVo);
-			return "/board/view/" + boardVo.getNo();
+		try {
+			bSuccess = boardServiceImpl.update(vo);
+		} catch (Exception e) {
+			System.err.println("에러상황의 BoardVo:" + vo);
+			e.printStackTrace();
 		}
-		
+		if (bSuccess) {	// 성공
+
+			return "redirect:/board/view/" + vo.getNo();
+		}
 		return "redirect:/board/list";
 	}
 	

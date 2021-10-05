@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Template</title>
+<title>My Portal Home</title>
 <script 
 	type="text/javascript" 
 	src="<c:url value="/javascript/jquery/jquery-3.6.0.js" />"></script>
