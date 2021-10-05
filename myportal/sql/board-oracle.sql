@@ -54,4 +54,8 @@ UPDATE board
         title = '테스트',
         content = '해봅시다'
 WHERE no = 21;
-rollback;        
+rollback;       
+
+-- 게시물 삭제
+DELETE FROM board
+WHERE no = 21;

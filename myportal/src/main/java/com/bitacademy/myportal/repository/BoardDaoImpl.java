@@ -34,13 +34,13 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public int update(BoardVo boardVo) {
 		int updatedCount = sqlSession.update("board.contentUpdate", boardVo);
-		return 0;
+		return updatedCount;
 	}
 
 	@Override
 	public int delete(Long no) {
-		// TODO Auto-generated method stub
-		return 0;
+		int deletedCount = sqlSession.delete("board.delete", no);
+		return deletedCount;
 	}
 
 }

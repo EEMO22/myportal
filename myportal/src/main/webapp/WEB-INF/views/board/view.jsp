@@ -19,13 +19,13 @@
 		</tr>
 		<tr>
 			<td>제목</td>
-			<td>${vo.getTitle() }</td>
+			<td>${vo.getTitle()}</td>
 		</tr>
 		<tr>
 			<td>내용</td>
 			<td>
 				<div>
-					${vo.getContent() }
+					${vo.getContent()}
 				</div>
 			</td>
 		</tr>

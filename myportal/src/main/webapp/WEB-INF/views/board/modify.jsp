@@ -16,13 +16,13 @@
 				<th colspan="2">글수정</th>
 			</tr>
 			<tr>
-				<td>${vo.title }</td>
+				<td>${vo.getTitle()}</td>
 				<td><input type="text" name="title" value=""></td>
 			</tr>
 			<tr>
 				<td>내용</td>
 				<td>
-					<textarea id="content" name="content">${vo.content }</textarea>
+					<textarea id="content" name="content">${vo.getContent()}</textarea>
 				</td>
 			</tr>
 			<tr>

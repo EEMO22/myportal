@@ -46,11 +46,16 @@
 	WHERE no = #{no}
 	</update>
 	
-	<update id="contentUpdate" parameterType="long">
+	<update id="contentUpdate" parameterType="boardVo">
 	UPDATE board
     SET
         title = #{vo.title},
         content = #{vo.content}
 	WHERE no = #{no}
 	</update>
+	
+	<delete id="delete" parameterType="long">
+	DELETE FROM board
+	WHERE no = #{no}
+	</delete>
 </mapper>

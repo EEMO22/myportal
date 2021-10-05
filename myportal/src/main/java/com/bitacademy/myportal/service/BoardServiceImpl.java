@@ -37,4 +37,10 @@ public class BoardServiceImpl implements BoardService {
 		return 1 == updatedCount;
 	}
 
+	@Override
+	public boolean delete(Long no) {
+		int deletedCount = boardDaoImpl.delete(no);
+		return 1 == deletedCount;
+	}
+
 }

@@ -26,8 +26,6 @@ public class UserDaoImpl implements UserDao {
 			throw new UserDaoException("회원 가입 중 오류!", vo);
 		}
 		
-		//	TODO: 예외처리 필요
-		
 		return count;
 	}
 
