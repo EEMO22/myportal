@@ -70,21 +70,17 @@ public class BoardController {
 	}
 	
 	//	게시물 수정
-	@RequestMapping(value="/board/modify/{no}", 
-			method=RequestMethod.POST)
-	public String modifyForm(HttpSession session, Long no, Model model, BoardVo boardVo) {
+	@RequestMapping(value="/modify/{no}", 
+			method=RequestMethod.GET)
+	public String modifyForm(@PathVariable Long no, Model model) {
 	
 		model.addAttribute("boardVo", no);
-		UserVo authUser = (UserVo)session.getAttribute("authUser");
-
-		if (authUser.getNo() == boardVo.getUserNo()) {
-			return "redirect:/board/modify/${vo.no}";
-		}
+		
 		return "/board/modify";
 	}
 	
 	@RequestMapping(value="/modify", 
-			method=RequestMethod.GET)
+			method=RequestMethod.POST)
 
 	public String modify(@ModelAttribute BoardVo boardVo) {
 		boardServiceImpl.update(boardVo);
@@ -95,7 +91,7 @@ public class BoardController {
 			return "/board/view/" + boardVo.getNo();
 		}
 		
-		return "redirect:/board/view/{no}";
+		return "redirect:/board/list";
 	}
 	
 	//	게시물 삭제

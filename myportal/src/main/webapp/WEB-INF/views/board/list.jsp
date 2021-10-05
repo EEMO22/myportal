@@ -27,7 +27,14 @@
 				<td>${vo.userName }</td>
 				<td>${vo.hit}</td>
 				<td>${vo.regDate }</td>
-				<td><a href="<c:url value="/board/delete/${vo.no }"/>">삭제</a></td>
+				<c:choose>
+					<c:when test="${authUser.getNo() == vo.userNo }">
+						<td><a href="<c:url value="/board/delete/${vo.no }"/>">삭제</a></td>
+					</c:when>
+					<c:otherwise>
+						<td>삭제</td>
+					</c:otherwise>
+				</c:choose>
 			</tr>
 		</c:forEach>
 		<tr>
