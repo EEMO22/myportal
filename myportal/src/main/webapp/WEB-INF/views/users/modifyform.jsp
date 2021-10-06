@@ -27,7 +27,7 @@
 					<input type="hidden" name="no" value="${authUser.getNo() }">
 					
 					<label for"email">이메일</label>
-					<input name="email" type="text"	value="${authUser.getEmail() }" readonly><br>
+					<input name="email" type="text"	value="${authUser.getEmail() }" disabled><br>
 					
 					<label for="name">이름</label>
 					<input name="name" type="text" value="${authUser.getName() }"><br>

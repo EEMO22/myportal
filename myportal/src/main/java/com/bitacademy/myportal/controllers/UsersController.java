@@ -156,8 +156,6 @@ public class UsersController {
 	
 	@RequestMapping(value="/modify", method=RequestMethod.POST)
 	public String modifyAction(@ModelAttribute UserVo userVo,
-			@RequestParam(value="email", required=false)
-				String email,
 			@RequestParam(value="name", required=false)
 				String name,
 			@RequestParam(value="password", required=false)
@@ -165,7 +163,8 @@ public class UsersController {
 			HttpSession session) {
 		
 		if (name.length() == 0 || password.length() == 0) {
-			System.err.println("정보 수정 불가!");
+//			System.err.println("정보 수정 불가!");
+			logger.debug("정보 수정 불가!");
 			return "redirect:/users/modify";
 		}
 		
@@ -175,15 +174,16 @@ public class UsersController {
 		try {
 			bSuccess = userServiceImpl.modify(userVo);
 		} catch (UserDaoException e) {
-			System.err.println("에러상황의 UserVo:" + userVo);
+//			System.err.println("에러상황의 UserVo:" + userVo);
+			logger.debug("에러 상황의  UserVo:" + userVo);
 			e.printStackTrace();
 		}
 		
 		if (bSuccess) {	// 성공
-			UserVo authUser = userServiceImpl.getUser(email);
+			UserVo authUser = (UserVo) session.getAttribute("authUser");
 			authUser.setName(name);
-			System.out.println("현재 세션 이름:" + authUser.getName());
-			//	사용자 세션 업데이트 수정 중!
+//			System.out.println("현재 세션 이름:" + authUser.getName());
+			logger.debug("현재 세션 이름:" + authUser.getName());
 			
 			return "redirect:/";
 		}

@@ -26,7 +26,6 @@
 	<update id="updateUser">
 	UPDATE users
     	SET 
-    		email = #{email},
 	        name = #{name},
 	        password = #{password}, 
 	        gender = #{gender}
